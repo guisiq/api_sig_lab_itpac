@@ -32,7 +32,7 @@ public class PeriodoController {
 
     @GetMapping("/{id}")
     public Periodo listPeriodo(@PathVariable(value = "id") int id) {
-        return periodoRepository.findById(id).orElseThrow();
+        return periodoRepository.findById(id).get();
     }
     
     @GetMapping
