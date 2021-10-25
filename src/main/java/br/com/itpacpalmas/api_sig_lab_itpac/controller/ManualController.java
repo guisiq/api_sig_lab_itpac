@@ -24,7 +24,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.FileStorageService;
 // https://www.youtube.com/watch?v=DtC_KfU6b1o
 @RestController
 @RequestMapping("api/manual")
-@CrossOrigin("https://api-sig-itpac-84633.herokuapp.com")
+@CrossOrigin(origins ="https://api-sig-itpac-84633.herokuapp.com")
 public class ManualController {
     @Autowired
 	private FileStorageService servises;

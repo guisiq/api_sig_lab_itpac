@@ -24,7 +24,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.ProfessorRepository;
 
 @RestController
 @RequestMapping( value ="/api/professores")
-@CrossOrigin("https://api-sig-itpac-84633.herokuapp.com")
+@CrossOrigin(origins ="https://api-sig-itpac-84633.herokuapp.com")
 public class ProfessorController {
 
 @Autowired
