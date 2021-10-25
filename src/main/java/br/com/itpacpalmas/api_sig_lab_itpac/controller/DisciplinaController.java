@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.DisciplinaService;
 
 @RestController
 @RequestMapping(value = "api/disciplina")
-
+@CrossOrigin("https://api-sig-itpac-84633.herokuapp.com")
 public class DisciplinaController {
     @Autowired
     private DisciplinaService service;
@@ -32,17 +33,12 @@ public class DisciplinaController {
         return ResponseEntity.ok().body(obj);
     }
     
-    @GetMapping(value = "/getbyname")
+    @GetMapping
     public ResponseEntity<List<Disciplina>> findbyname(@RequestParam("nome") String nome){
         List<Disciplina> obj = service.findAll();
         if (nome != null) {
             obj.removeIf(p -> !p.getNome().equals(nome));
         }
-        return ResponseEntity.ok().body(obj);
-    }
-    @GetMapping(value = "/get")
-    public ResponseEntity<List<Disciplina>> findAll(){
-        List<Disciplina> obj = service.findAll();
         return ResponseEntity.ok().body(obj);
     }
 
