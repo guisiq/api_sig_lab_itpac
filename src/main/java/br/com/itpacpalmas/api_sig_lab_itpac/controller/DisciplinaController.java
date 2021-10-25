@@ -22,7 +22,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.DisciplinaService;
 
 @RestController
 @RequestMapping(value = "api/disciplina")
-@CrossOrigin(origins ="https://api-sig-itpac-84633.herokuapp.com")
+@CrossOrigin
 public class DisciplinaController {
     @Autowired
     private DisciplinaService service;

@@ -21,7 +21,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.PeriodoRepository;
 
 @RestController
 @RequestMapping("/api/periodo")
-@CrossOrigin(origins ="https://api-sig-itpac-84633.herokuapp.com")
+@CrossOrigin
 public class PeriodoController {
 
 	@Autowired
