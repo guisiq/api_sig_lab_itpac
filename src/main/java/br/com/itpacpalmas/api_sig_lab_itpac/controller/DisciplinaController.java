@@ -63,4 +63,9 @@ public class DisciplinaController {
         return service.disable(id);
         
     }
+    @PatchMapping(value="/desativar/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Disciplina> Ativar(@PathVariable (value = "id")Integer id){
+        return service.ativar(id);
+        
+    }
 }
