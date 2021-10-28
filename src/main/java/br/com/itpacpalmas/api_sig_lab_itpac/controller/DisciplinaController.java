@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.DisciplinaService;
 
 @RestController
 @RequestMapping(value = "api/disciplina")
+@CrossOrigin
 public class DisciplinaController {
     @Autowired
     private DisciplinaService service;
