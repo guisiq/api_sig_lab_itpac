@@ -15,6 +15,7 @@ public class Manual {
     private Integer id;
     private String descricao;
     private String documento;
+    @Column(columnDefinition = "boolean default false")
     private boolean ativo;
 
 

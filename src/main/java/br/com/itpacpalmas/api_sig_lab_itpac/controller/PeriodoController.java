@@ -49,16 +49,19 @@ public class PeriodoController {
         return periodoRepository.save(periodo);
     }
 
-    @DeleteMapping("/{id}")
-    public void excluir(@PathVariable int id) {
-        periodoRepository.deleteById(id);
+    @PatchMapping("/desativar/{id}")
+    public void desativar(@PathVariable(value = "id") int id) {
+
+        Periodo p = periodoRepository.findById(id).get();
+        p.setAtivo(false);
+        periodoRepository.save(p);
     }
-    @PatchMapping(value="/desativar/{id}")
-    public Periodo disable (@PathVariable (value = "id")Integer id){
-        Periodo periodo = periodoRepository.findById(id).get();
-        periodo.setAtivo(true);
-        periodoRepository.save(periodo);
-        return periodo;
+    @PatchMapping("/ativar/{id}")
+    public void ativar(@PathVariable(value = "id") int id) {
+
+        Periodo p = periodoRepository.findById(id).get();
+        p.setAtivo(true);
+        periodoRepository.save(p);
     }
     
 }
