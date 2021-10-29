@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -51,6 +52,13 @@ public class PeriodoController {
     @DeleteMapping("/{id}")
     public void excluir(@PathVariable int id) {
         periodoRepository.deleteById(id);
+    }
+    @PatchMapping(value="/desativar/{id}")
+    public Periodo disable (@PathVariable (value = "id")Integer id){
+        Periodo periodo = periodoRepository.findById(id).get();
+        periodo.setAtivo(true);
+        periodoRepository.save(periodo);
+        return periodo;
     }
     
 }
