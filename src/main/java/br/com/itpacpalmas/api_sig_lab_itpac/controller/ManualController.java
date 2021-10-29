@@ -49,17 +49,17 @@ public class ManualController {
         return servises.uploadFile(file,descricao);
     }
     
-    @PatchMapping("updateDescricao/{id}/{descricao}")
+    @PatchMapping("/updateDescricao/{id}/{descricao}")
     public void update(@PathVariable int id,@PathVariable String descricao) {
         servises.update(id, descricao);
     }
 
-    @PatchMapping("desativar/{id}")
+    @PatchMapping("/desativar/{id}")
     public void desativar(@PathVariable int id,@PathVariable String descricao) {
         servises.desativar(id);
     }
-    
-    @PatchMapping("ativar/{id}")
+
+    @PatchMapping("/ativar/{id}")
     public void ativar(@PathVariable int id,@PathVariable String descricao) {
         servises.ativar(id);
     }
