@@ -53,7 +53,7 @@ public class DisciplinaController {
     @PutMapping()
     public ResponseEntity<Disciplina> update(@RequestBody Disciplina obj){
         //Garantir que realmente é o objeto do ID
-        obj.setId(id);
+        //obj.setId(id);
         obj = service.update(obj);
 
         return ResponseEntity.ok().body(obj);
