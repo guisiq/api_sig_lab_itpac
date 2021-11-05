@@ -49,7 +49,7 @@ public class DisciplinaController {
         return ResponseEntity.ok().body(obj);
     }
 
-    @RequestMapping(value ="/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<Disciplina> update(@RequestBody Disciplina obj, @PathVariable Integer id){
         //Garantir que realmente é o objeto do ID
         obj.setId(id);
