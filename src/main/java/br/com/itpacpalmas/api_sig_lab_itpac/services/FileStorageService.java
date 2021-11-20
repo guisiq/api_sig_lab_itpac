@@ -100,7 +100,7 @@ public class FileStorageService {
 		getManual.setDocumento(fileName);;
 		
 		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-				.path("/api/file/downloadFile/")
+				.path("/api/Manual/doc/"+getManual.getId())
 				.path(fileName)
 				.toUriString();
 		

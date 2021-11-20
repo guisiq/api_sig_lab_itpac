@@ -25,6 +25,16 @@ public class Manual {
         return this.id;
     }
 
+    public Manual() {
+    }
+
+    public Manual(Integer id, String descricao, String documento, boolean ativo) {
+        this.id = id;
+        this.descricao = descricao;
+        this.documento = documento;
+        this.ativo = ativo;
+    }
+
     public boolean isAtivo() {
         return ativo;
     }
