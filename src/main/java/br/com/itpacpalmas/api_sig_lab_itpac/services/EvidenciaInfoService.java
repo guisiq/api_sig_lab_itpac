@@ -50,7 +50,7 @@ public class EvidenciaInfoService {
         Aula aula = new Aula();
         //DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/uuuu");
         //info.setId(aula.getId());
-        var agendamento = new Agendamento();
+        Agendamento agendamento = new Agendamento();
         agendamento.setId(info.getIdagendamento());
         aula.setAgendamento(agendamento);
         aula.setNomeAtividade(info.getNomeAtividade());
