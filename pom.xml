@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>br.com.itpacpalmas</groupId>
 	<artifactId>api_sig_lab_itpac</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<packaging>jar</packaging>
 	<name>api_sig_lab_itpac</name>
