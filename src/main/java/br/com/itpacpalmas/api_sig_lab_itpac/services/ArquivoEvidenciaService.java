@@ -21,13 +21,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.itpacpalmas.api_sig_lab_itpac.config.FileStorageConfig;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Arquivo;
-import br.com.itpacpalmas.api_sig_lab_itpac.entities.Manual;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.ArquivoResponseVO;
 import br.com.itpacpalmas.api_sig_lab_itpac.exception.FileStorageException;
 import br.com.itpacpalmas.api_sig_lab_itpac.exception.MyFileNotFoundException;
 import br.com.itpacpalmas.api_sig_lab_itpac.exception.ResourceNotFoundException;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.ArquivoRepository;
-import br.com.itpacpalmas.api_sig_lab_itpac.repository.ManualRepository;
 
 @Service
 public class ArquivoEvidenciaService {
