@@ -11,7 +11,7 @@ public class teste {
         DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd/MM/uuuu");
         LocalDate.now().getDayOfWeek().ordinal();
         DayOfWeek dow = DayOfWeek.from(parser.parse("24/11/2020"));
-        var v = dow.values();
+        DayOfWeek[] v = dow.values();
         System.out.println(v);
 	}
 
