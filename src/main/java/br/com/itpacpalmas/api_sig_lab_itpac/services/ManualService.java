@@ -100,7 +100,7 @@ public class ManualService {
 		getManual.setDocumento(fileName);;
 		
 		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-				.path("/api/manual/doc/"+getManual.getId())
+				.path("/api/Manual/doc/"+getManual.getId())
 				//.path(fileName)
 				.toUriString();
 		

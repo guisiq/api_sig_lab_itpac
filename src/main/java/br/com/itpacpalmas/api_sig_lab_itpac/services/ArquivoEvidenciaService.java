@@ -137,7 +137,8 @@ public class ArquivoEvidenciaService {
 	}
 
     public ArquivoResponseVO update(int id ,String descricao ) {
-		Arquivo retorno = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("entidade nao encontrada no banco "));
+		Arquivo retorno = repo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("entidade nao encontrada no banco "));
 		repo.save(retorno);
 		return ArquivoResponseVO.convert(retorno,fileStorageLocation.toString());
     }

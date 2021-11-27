@@ -9,6 +9,7 @@ public class FileStorageConfig {
 	private String uploadEvidenciaDir;
 
 	/**
+	 * 功能描述: uploadEvidenciaDir
 	 *
 	 * @return String
 	 * @author lopes lopes@email.com
