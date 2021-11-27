@@ -100,8 +100,8 @@ public class ManualService {
 		getManual.setDocumento(fileName);;
 		
 		String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-				.path("/api/Manual/doc/"+getManual.getId())
-				.path(fileName)
+				.path("/api/manual/doc/"+getManual.getId())
+				//.path(fileName)
 				.toUriString();
 		
 		ManualResponseVO retorno = new ManualResponseVO(fileName, fileDownloadUri, file.getContentType(), file.getSize());
