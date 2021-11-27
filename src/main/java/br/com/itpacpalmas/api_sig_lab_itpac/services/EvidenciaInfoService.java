@@ -43,6 +43,11 @@ public class EvidenciaInfoService {
         System.out.println("info.setId(aula.getId())");
         info.setData(aula.getAgendamento().getData());
         System.out.println("info.setData(aula.getAgendamento().getData()");
+        System.out.println("aula:"+ aula);
+        System.out.println("aula.getAgendamento():"+ aula.getAgendamento());
+        System.out.println("aula.getAgendamento().getSala():"+ aula.getAgendamento().getSala());
+        System.out.println("aula.getAgendamento().getSala().getNome():"+ aula.getAgendamento().getSala().getNome());
+        //da erro aqui 
         info.setSala(aula.getAgendamento().getSala().getNome());
         System.out.println("info.setSala(aula.getAgendamento().getSala().getNome()");
         info.setSubgrupo(aula.getAgendamento().getSubgrupo().getNome());
