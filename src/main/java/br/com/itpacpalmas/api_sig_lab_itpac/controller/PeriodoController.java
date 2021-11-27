@@ -47,9 +47,6 @@ public class PeriodoController {
 
     @PutMapping
     public Periodo atualizaPeriodo(@RequestBody Periodo periodo) {
-        Periodo p = periodoRepository.findById(periodo.getId()).get();
-        //Mantém a data cadastro inalterada
-        periodo.setDataCadastro(p.getDataCadastro());
         return periodoRepository.save(periodo);
     }
 

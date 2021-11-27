@@ -1,6 +1,7 @@
 package br.com.itpacpalmas.api_sig_lab_itpac.entities.VO;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -10,7 +11,7 @@ public class EvidenciaInfo {
     private Integer idagendamento;
     private String sala;
     @JsonFormat(pattern = "dd-MM-yyyy", timezone = "GMT-3")
-    private LocalDate data;
+    private Date data;
     private String subgrupo;
     private String nomeAtividade;
     private String codigo;
@@ -29,10 +30,11 @@ public class EvidenciaInfo {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    public LocalDate getData() {
+   
+    public Date getData() {
         return data;
     }
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     }
     public Double getHorasAprendizagem() {
