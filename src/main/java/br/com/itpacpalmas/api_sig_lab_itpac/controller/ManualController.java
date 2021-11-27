@@ -27,8 +27,8 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.ManualService;
 @RequestMapping("api/manual")
 @CrossOrigin
 public class ManualController {
-    
-	private ManualService servises = new ManualService(new FileStorageConfig());
+    @Autowired
+	private ManualService servises;
     
     @GetMapping()
     public  ResponseEntity<List<ManualResponseVO>> getInfo() {

@@ -27,7 +27,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.exception.MyFileNotFoundException;
 import br.com.itpacpalmas.api_sig_lab_itpac.exception.ResourceNotFoundException;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.ManualRepository;
 
-
+@Service
 public class ManualService {
 
 	private final Path fileStorageLocation;
