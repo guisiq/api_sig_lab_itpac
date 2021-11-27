@@ -33,8 +33,11 @@ public class EvidenciaInfoService {
         return convertToInfo(aula);
     }
     public EvidenciaInfo convertToInfo(Aula aula) {
+        System.out.println("");
+        System.out.println("convertToInfo");
+        System.out.println("");
+
         EvidenciaInfo info = new EvidenciaInfo();
-        DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/uuuu");
         info.setId(aula.getId());
         info.setData(aula.getAgendamento().getData());
         info.setSala(aula.getAgendamento().getSala().getNome());
@@ -45,6 +48,10 @@ public class EvidenciaInfoService {
         info.setCodigo(aula.getCodigo());
         info.setArquivosUrl("");
         info.setPresencaUrl("");
+        
+        System.out.println("");
+        System.out.println("convertToInfo final");
+        System.out.println("");
         return info;
     }
     public Aula convertToAula(EvidenciaInfo info) {
@@ -68,13 +75,22 @@ public class EvidenciaInfoService {
             infos.add(info);
         });
         */
+        System.out.println("");
+        System.out.println("ConvertList");
+        System.out.println("");
         for (Aula aula : aulas) {
             EvidenciaInfo info = convertToInfo(aula);
             infos.add(info);
         }
+        System.out.println("");
+        System.out.println("depois do for");
+        System.out.println("");
         return infos;
     }
     public List<EvidenciaInfo> findAll(){
+        System.out.println("");
+        System.out.println("findAll()");
+        System.out.println("");
         return ConvertList(repo.findAll());
     }
     public EvidenciaInfo creat(EvidenciaInfo evidencia) {
