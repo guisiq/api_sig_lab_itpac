@@ -38,16 +38,27 @@ public class EvidenciaInfoService {
         System.out.println("");
 
         EvidenciaInfo info = new EvidenciaInfo();
+        System.out.println("EvidenciaInfo info = new EvidenciaInfo()");
         info.setId(aula.getId());
+        System.out.println("info.setId(aula.getId())");
         info.setData(aula.getAgendamento().getData());
+        System.out.println("info.setData(aula.getAgendamento().getData()");
         info.setSala(aula.getAgendamento().getSala().getNome());
+        System.out.println("info.setSala(aula.getAgendamento().getSala().getNome()");
         info.setSubgrupo(aula.getAgendamento().getSubgrupo().getNome());
+        System.out.println("info.setSubgrupo(aula.getAgendamento().getSubgrupo().getNome()");
         info.setIdagendamento(aula.getId());
+        System.out.println("info.setIdagendamento(aula.getId()");
         info.setNomeAtividade(aula.getNomeAtividade());
+        System.out.println("info.setNomeAtividade(aula.getNomeAtividade()");
         info.setHorasAprendizagem(aula.getHorasAprendizagem());
+        System.out.println("info.setHorasAprendizagem(aula.getHorasAprendizagem()");
         info.setCodigo(aula.getCodigo());
+        System.out.println("info.setCodigo(aula.getCodigo()");
         info.setArquivosUrl("");
+        System.out.println("info.setArquivosUrl()");
         info.setPresencaUrl("");
+        System.out.println("info.setPresencaUrl()");
         
         System.out.println("");
         System.out.println("convertToInfo final");
