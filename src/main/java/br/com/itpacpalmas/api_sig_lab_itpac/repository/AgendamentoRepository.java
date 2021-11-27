@@ -2,7 +2,6 @@ package br.com.itpacpalmas.api_sig_lab_itpac.repository;
 
 
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,10 +16,10 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Intege
     List<Agendamento> buscarTodos();
 
     //@Query(value = "select * from agendamento a  where a.data = :data" , nativeQuery = true)
-    List<Agendamento> findByData(LocalDate data);
+    List<Agendamento> findByData(Date data);
 
     @Query(value = "SELECT * FROM agendamento a WHERE a.data BETWEEN :inicio and :termino", nativeQuery = true)
-    List<Agendamento> findByPeriod(LocalDate inicio, LocalDate termino);
+    List<Agendamento> findByPeriod(Date inicio, Date termino);
 
     Agendamento findById(int id);
 }

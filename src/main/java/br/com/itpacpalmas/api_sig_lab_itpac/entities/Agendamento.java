@@ -3,6 +3,7 @@ package br.com.itpacpalmas.api_sig_lab_itpac.entities;
 import java.sql.Date;
 import java.time.LocalDate;
 
+
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -39,7 +40,7 @@ public class Agendamento {
     @JoinColumn(name = "subgrupo") 
     private Subgrupo subgrupo; 
     @JsonFormat(pattern = "dd-MM-yyyy", timezone = "GMT-3")
-    private LocalDate data;
+    private Date data;
 
     private boolean ativo ;
 
@@ -85,10 +86,10 @@ public class Agendamento {
     public void setSubgrupo(Subgrupo subgrupo) {
         this.subgrupo = subgrupo;
     }
-    public LocalDate getData() {
+    public Date getData() {
         return data;
     }
-    public void setData(LocalDate data) {
+    public void setData(Date data) {
         this.data = data;
     } 
 
