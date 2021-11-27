@@ -62,10 +62,16 @@ public class EvidenciaInfoService {
     }
     public List<EvidenciaInfo> ConvertList(List<Aula> aulas) {
         List<EvidenciaInfo> infos = new ArrayList<EvidenciaInfo>();
+        /*
         aulas.forEach(aula ->{
             EvidenciaInfo info = convertToInfo(aula);
             infos.add(info);
         });
+        */
+        for (Aula aula : aulas) {
+            EvidenciaInfo info = convertToInfo(aula);
+            infos.add(info);
+        }
         return infos;
     }
     public List<EvidenciaInfo> findAll(){
