@@ -49,7 +49,7 @@ public class StatusController {
 
     @GetMapping("/buscarTodos")
     public List<Status> buscarTodos() {
-        return statusRepository.buscarTodos();
+        return statusRepository.findAll();
     }
 
   
