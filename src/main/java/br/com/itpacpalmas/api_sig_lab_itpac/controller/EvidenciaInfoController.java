@@ -26,6 +26,7 @@ public class EvidenciaInfoController {
     @Autowired
     EvidenciaInfoService evidenciaInfoService;
 
+
     @GetMapping("/{id}")
     public EvidenciaInfo Info(@PathVariable(value = "id") int id) {
         return evidenciaInfoService.find(id);
@@ -42,4 +43,9 @@ public class EvidenciaInfoController {
     public List<EvidenciaInfo> InfoLista() {
         return evidenciaInfoService.findAll();
     }
+    @PutMapping
+    public EvidenciaInfo put(@RequestBody EvidenciaInfo evidencia) {
+        return evidenciaInfoService.Alter(evidencia);
+    }
+    
 }

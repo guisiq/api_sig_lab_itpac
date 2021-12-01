@@ -33,6 +33,15 @@ public class AgendamentoController {
     @Autowired
     AgendamentoRepository agendamentoRepository;
 
+    @GetMapping("getAll/{filtro}")
+public List<Agendamento> getAll(@PathVariable (value = "filtro") boolean filtro){
+    List<Agendamento> retorno = agendamentoRepository.findAll();
+    if (filtro) {
+        retorno.removeIf(p -> !p.getAtivo()); 
+    }
+    return retorno;
+}
+
     @PostMapping("/professor")
     public ResponseEntity<?> cadastrarRecorenteProfessor(
         @RequestBody Agendamento agendamento,
@@ -212,7 +221,6 @@ public class AgendamentoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-
     @GetMapping("buscarPorDatas/{data}")
     public List<Agendamento> findByData(@PathVariable(value = "data") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataRecebida) throws ParseException {
 
