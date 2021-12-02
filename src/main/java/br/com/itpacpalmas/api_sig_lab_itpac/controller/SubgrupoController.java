@@ -46,6 +46,15 @@ public class SubgrupoController {
 	public List<Subgrupo> findAll() {
 	  return subgrupoRepository.findAll();	
 	}
+	@GetMapping("getAll/{filtro}")
+	public List<Subgrupo> getAll(@PathVariable (value = "filtro") boolean filtro){
+		List<Subgrupo> retorno = subgrupoRepository.findAll();
+		if (filtro) {
+			retorno.removeIf(p -> !p.getAtivo()); 
+		}
+		return retorno;
+	}
+	
 	
 	@PutMapping()
 	public Subgrupo alter(@RequestBody Subgrupo subgrupo) {
