@@ -51,7 +51,6 @@ public class SubgrupoController {
 		return retorno;
 	}
 	
-	
 	@PutMapping()
 	public Subgrupo alter(@RequestBody Subgrupo subgrupo) {
 	  return subgrupoRepository.save(subgrupo);	

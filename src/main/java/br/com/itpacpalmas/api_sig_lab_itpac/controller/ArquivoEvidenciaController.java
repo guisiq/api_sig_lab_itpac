@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.ArquivoResponseVO;
@@ -26,10 +25,11 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.ManualService;
 // https://www.youtube.com/watch?v=DtC_KfU6b1o
 @RestController
 @RequestMapping("api/evidencia/arquivo")
-@CrossOrigin
 public class ArquivoEvidenciaController {
     @Autowired
 	private ArquivoEvidenciaService servises;
+
+    
     
     @GetMapping()
     public  ResponseEntity<?> getInfo(
@@ -51,8 +51,8 @@ public class ArquivoEvidenciaController {
     }
     
     @PostMapping("/{idEvidencia}")
-	public ArquivoResponseVO uploadFile(@RequestParam("file") MultipartFile file,@PathVariable int idEvidencia) {
-        return servises.uploadFile(file,idEvidencia);
+	public ArquivoResponseVO uploadFile(@RequestParam("descricao") String descricao,@RequestParam("file") MultipartFile file,@PathVariable int idEvidencia) {
+        return servises.uploadFile(file,idEvidencia,descricao);
     }
     
     @PatchMapping("/{id}/{descricao}")
@@ -62,6 +62,7 @@ public class ArquivoEvidenciaController {
 
     @DeleteMapping("/{id}")
     public void delet(@PathVariable int id) {
+        
        servises.delete(id); 
     }
 

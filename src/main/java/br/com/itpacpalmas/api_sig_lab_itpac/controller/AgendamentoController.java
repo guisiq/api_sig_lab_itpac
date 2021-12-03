@@ -209,18 +209,7 @@ public List<Agendamento> getAll(@PathVariable (value = "filtro") boolean filtro)
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    @PatchMapping(value = "/ativar/{id}")
-    public ResponseEntity<Agendamento> Active(@PathVariable(value = "id") Integer id) {
-        try {
-            Agendamento agendamento = agendamentoRepository.findById(id).get();
-            agendamento.setAtivo(true);
-            agendamentoRepository.save(agendamento);
-            return ResponseEntity.status(HttpStatus.OK).body(agendamento);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
-    }
+
     @GetMapping("buscarPorDatas/{data}")
     public List<Agendamento> findByData(@PathVariable(value = "data") @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataRecebida) throws ParseException {
 
