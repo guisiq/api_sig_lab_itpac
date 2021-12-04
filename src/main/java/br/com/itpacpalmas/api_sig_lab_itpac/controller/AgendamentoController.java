@@ -34,19 +34,19 @@ public class AgendamentoController {
     AgendamentoRepository agendamentoRepository;
 
     @GetMapping("getAll/{filtro}")
-public List<Agendamento> getAll(@PathVariable (value = "filtro") boolean filtro){
-    List<Agendamento> retorno = agendamentoRepository.findAll();
-    if (filtro) {
-        retorno.removeIf(p -> !p.getAtivo()); 
+    public List<Agendamento> getAll(@PathVariable (value = "filtro") boolean filtro){
+        List<Agendamento> retorno = agendamentoRepository.findAll();
+        if (filtro) {
+            retorno.removeIf(p -> !p.getAtivo()); 
+        }
+        return retorno;
     }
-    return retorno;
-}
 
     @PostMapping("/professor")
     public ResponseEntity<?> cadastrarRecorenteProfessor(
         @RequestBody Agendamento agendamento,
-        @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataInicio,
-        @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate datafim,
+        @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataInicio,
+        @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate datafim,
         @RequestParam(required = false) String dias) {
         
         if(dataInicio == null || datafim == null||dias==null){
@@ -122,8 +122,8 @@ public List<Agendamento> getAll(@PathVariable (value = "filtro") boolean filtro)
     @PostMapping("/tecnico")
     public ResponseEntity<?> cadastrarRecorente(
         @RequestBody Agendamento agendamento,
-        @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataInicio,
-        @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate datafim,
+        @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataInicio,
+        @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate datafim,
         @RequestParam(required = false) String dias) {
 
 
