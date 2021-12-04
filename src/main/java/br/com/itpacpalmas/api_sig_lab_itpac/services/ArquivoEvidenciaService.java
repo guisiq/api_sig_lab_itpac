@@ -86,6 +86,7 @@ public class ArquivoEvidenciaService {
 		}
 		
 	}
+
 	
     public List<ArquivoResponseVO> buscarTodosInfo() {
 		return ArquivoResponseVO.convertList(ArquivoRepo.findAll(),fileStorageLocation.toString()); 
@@ -97,7 +98,8 @@ public class ArquivoEvidenciaService {
         
     }
 
-	public ArquivoResponseVO uploadFile(MultipartFile file,int id, String descricao) {
+
+	public ArquivoResponseVO uploadFile(MultipartFile file,int id,String descricao) {
 		Arquivo getArquivo = ArquivoRepo.save(new Arquivo());
 		String fileName = this.storeFile(file,getArquivo.getId(),id);
 		getArquivo.setCaminho(fileName);;
@@ -118,6 +120,7 @@ public class ArquivoEvidenciaService {
 		return retorno;
 	
 	}
+
 	
 	public ResponseEntity<Resource> downloadFile(int id, HttpServletRequest request) {
 		String fileName = ArquivoRepo.findById(id).get().getCaminho();
@@ -150,6 +153,7 @@ public class ArquivoEvidenciaService {
     }
 
 	public void delete(int id) {
+		ArquivoRepo.deletAulaArquivo(id);
 		ArquivoRepo.deleteById(id);
 	}
 
