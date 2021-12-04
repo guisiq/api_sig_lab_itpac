@@ -38,7 +38,7 @@ public class Agendamento {
     @ManyToOne
     @JoinColumn(name = "subgrupo") 
     private Subgrupo subgrupo; 
-    @JsonFormat(pattern = "dd-MM-yyyy", timezone = "GMT-3")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT-3")
     private LocalDate data;
     private LocalTime horaInicio;
     private LocalTime horaFim;
