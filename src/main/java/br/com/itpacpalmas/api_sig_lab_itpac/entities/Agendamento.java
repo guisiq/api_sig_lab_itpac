@@ -36,6 +36,9 @@ public class Agendamento {
     @JoinColumn(name = "status")
     private Status status;
     @ManyToOne
+    @JoinColumn(name = "diciplina")
+    private Disciplina diciplina;
+    @ManyToOne
     @JoinColumn(name = "subgrupo") 
     private Subgrupo subgrupo; 
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT-3")
@@ -45,6 +48,14 @@ public class Agendamento {
 
 
     private boolean ativo;
+
+    public Disciplina getDiciplina() {
+        return diciplina;
+    }
+
+    public void setDiciplina(Disciplina diciplina) {
+        this.diciplina = diciplina;
+    }
 
     public LocalTime getHoraInicio() {
         return this.horaInicio;
