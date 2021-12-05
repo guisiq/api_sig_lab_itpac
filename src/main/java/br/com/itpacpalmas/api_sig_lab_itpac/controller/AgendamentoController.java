@@ -39,7 +39,7 @@ public class AgendamentoController {
         if (filtro != null) {
             retorno.removeIf(p -> {
                 if (p.getStatus() != null) {
-                    return (p.getStatus().getDescricao() != filtro);
+                    return !(p.getStatus().getDescricao().equals(filtro));
                 }
                 else{
                     return true;
