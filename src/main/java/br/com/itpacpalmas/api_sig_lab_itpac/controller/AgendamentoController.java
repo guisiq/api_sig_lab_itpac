@@ -37,7 +37,14 @@ public class AgendamentoController {
     public List<Agendamento> getAll(@PathVariable (value = "filtro") String filtro){
         List<Agendamento> retorno = agendamentoRepository.findAll();
         if (filtro != null) {
-            retorno.removeIf(p -> p.getStatus().getDescricao() != filtro); 
+            retorno.removeIf(p -> {
+                if (p.getStatus() != null) {
+                    return (p.getStatus().getDescricao() != filtro);
+                }
+                else{
+                    return true;
+                }
+            }); 
         }
         return retorno;
     }
