@@ -34,10 +34,10 @@ public class AgendamentoController {
     AgendamentoRepository agendamentoRepository;
 
     @GetMapping("getAll/{filtro}")
-    public List<Agendamento> getAll(@PathVariable (value = "filtro") boolean filtro){
+    public List<Agendamento> getAll(@PathVariable (value = "filtro") String filtro){
         List<Agendamento> retorno = agendamentoRepository.findAll();
-        if (filtro) {
-            retorno.removeIf(p -> !p.getAtivo()); 
+        if (filtro != null) {
+            retorno.removeIf(p -> p.getStatus().getDescricao() != filtro); 
         }
         return retorno;
     }
