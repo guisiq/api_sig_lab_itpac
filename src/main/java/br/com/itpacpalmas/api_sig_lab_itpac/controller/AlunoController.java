@@ -1,5 +1,6 @@
 package br.com.itpacpalmas.api_sig_lab_itpac.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Aluno;
+import br.com.itpacpalmas.api_sig_lab_itpac.entities.Permission;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Usuario;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.AlunoRepository;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.UsuarioRepository;
@@ -56,6 +58,11 @@ public class AlunoController {
 		 usu.setAccountNonExpired(true);
 		 usu.setAccountNonLocked(true);
 		 usu.setCredentialsNonExpired(true);
+		 Permission permission = new Permission();
+		 permission.setId((long)4);
+		 List<Permission> permissions = new ArrayList<>();
+		 permissions.add(permission);
+		usu.setPermissions(permissions);
 		 usuarioRepository.save(usu);
 		 
 	  return alunoRetorno;	
