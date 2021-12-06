@@ -36,26 +36,18 @@ public class Agendamento {
     @JoinColumn(name = "status")
     private Status status;
     @ManyToOne
-    @JoinColumn(name = "diciplina")
-    private Disciplina diciplina;
+    @JoinColumn(name = "disciplina")
+    private Disciplina disciplina  ;
     @ManyToOne
     @JoinColumn(name = "subgrupo") 
     private Subgrupo subgrupo; 
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT-3")
+    @JsonFormat(pattern = "dd-MM-yyyy", timezone = "GMT-3")
     private LocalDate data;
     private LocalTime horaInicio;
     private LocalTime horaFim;
 
 
     private boolean ativo;
-
-    public Disciplina getDiciplina() {
-        return diciplina;
-    }
-
-    public void setDiciplina(Disciplina diciplina) {
-        this.diciplina = diciplina;
-    }
 
     public LocalTime getHoraInicio() {
         return this.horaInicio;
@@ -64,7 +56,17 @@ public class Agendamento {
     public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
-    
+
+ 
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
     public LocalTime getHoraFim() {
         return horaFim;
     }
