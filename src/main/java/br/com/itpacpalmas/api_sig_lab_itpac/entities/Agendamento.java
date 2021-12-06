@@ -31,18 +31,15 @@ public class Agendamento {
     private Professor professor;
     @ManyToOne
     @JoinColumn(name = "sala")
-    @Column(nullable = false)
     private Sala sala;
     @ManyToOne
     @JoinColumn(name = "status")
-    @Column(nullable = false)
     private Status status;
     @ManyToOne
     @JoinColumn(name = "diciplina")
     private Disciplina diciplina;
     @ManyToOne
     @JoinColumn(name = "subgrupo") 
-    @Column(nullable = false)
     private Subgrupo subgrupo; 
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT-3")
     private LocalDate data;
