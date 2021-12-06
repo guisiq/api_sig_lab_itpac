@@ -5,6 +5,7 @@ package br.com.itpacpalmas.api_sig_lab_itpac.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,6 +19,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.security.jwt.JwtTokenProvider;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	private static final HttpMethod HttpMethod = null;
 	@Autowired
 	private JwtTokenProvider tokenProvider;
 
@@ -37,10 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.httpBasic().disable().csrf().disable().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/login/**").permitAll()
-				.antMatchers("/api/forgotpass/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/**").permitAll()
 				.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
 				.antMatchers("/api/Agendamentos**").hasAnyRole("TECNICO")
+				.antMatchers("/api/forgotpass/**").permitAll()
+				.antMatchers("/login/**").permitAll()
 				.antMatchers("/api/**").hasAnyRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
