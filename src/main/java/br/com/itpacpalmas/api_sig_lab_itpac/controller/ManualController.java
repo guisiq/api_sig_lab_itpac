@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.itpacpalmas.api_sig_lab_itpac.services.ManualService;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.ManualResponseVO;
+import br.com.itpacpalmas.api_sig_lab_itpac.services.ManualService;
 
 
 // https://www.youtube.com/watch?v=DtC_KfU6b1o
 @RestController
-@RequestMapping("/api/manual")
+@RequestMapping("api/manual")
 @CrossOrigin
 public class ManualController {
     @Autowired
