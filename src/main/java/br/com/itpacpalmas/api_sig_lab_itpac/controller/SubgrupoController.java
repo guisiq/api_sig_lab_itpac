@@ -23,7 +23,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.SubgrupoRepository;
 import br.com.itpacpalmas.api_sig_lab_itpac.exception.ResourceNotFoundException;
 @CrossOrigin
 @RestController
-@RequestMapping("api/subgrupo")
+@RequestMapping("/api/subgrupo")
 public class SubgrupoController {
 
 	
