@@ -39,6 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.httpBasic().disable().csrf().disable().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+				.antMatchers("/api/forgotpass/**").permitAll()
+				.antMatchers("/api/forgotpass**").permitAll()
 				//metodos get em agendamento e status sao permitidos a todos
 				.antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()
 				.antMatchers(HttpMethod.GET, "/api/status/**").permitAll()
@@ -53,8 +55,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//login e esqueceu a senha permitido a todos 
 				.antMatchers("/login/**").permitAll()
 				.antMatchers("/api/**").hasAnyRole("ADMIN")
-				.antMatchers("/api/forgotpass/**").permitAll()
-				.antMatchers("/api/forgotpass**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.apply(new JwtConfigurer(tokenProvider));
