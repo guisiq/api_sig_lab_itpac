@@ -51,9 +51,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//metodos get permitidos a todos altenticados
 				.antMatchers(HttpMethod.GET, "/api/**").authenticated()
 				//login e esqueceu a senha permitido a todos 
-				.antMatchers("/api/forgotpass/**").permitAll()
 				.antMatchers("/login/**").permitAll()
 				.antMatchers("/api/**").hasAnyRole("ADMIN")
+				.antMatchers("/api/forgotpass/**").permitAll()
+				.antMatchers("/api/forgotpass**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.apply(new JwtConfigurer(tokenProvider));
