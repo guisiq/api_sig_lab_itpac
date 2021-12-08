@@ -49,11 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
 				.antMatchers("/api/periodo/Agendamentos**").hasAnyRole("TECNICO")
 				//metodos get permitidos a todos altenticados
-				.antMatchers("/api/**").hasAnyRole("ADMIN")
 				.antMatchers(HttpMethod.GET, "/api/**").authenticated()
 				//login e esqueceu a senha permitido a todos 
 				.antMatchers("/api/forgotpass/**").permitAll()
 				.antMatchers("/login/**").permitAll()
+				.antMatchers("/api/**").hasAnyRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
 				.apply(new JwtConfigurer(tokenProvider));

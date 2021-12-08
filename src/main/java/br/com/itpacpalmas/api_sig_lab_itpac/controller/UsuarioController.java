@@ -39,14 +39,14 @@ public class UsuarioController {
 	@Autowired
 	UsuarioRepository repository;
 
-	@PostMapping(value = "/cadastrar")
+	@PostMapping("/cadastrar")
 	public Usuario cadastro(@RequestBody Usuario usuario) {
 		usuario.setId(null);
 		usuario.setAccountNonExpired(true);
 		usuario.setAccountNonLocked(true);
 		usuario.setCredentialsNonExpired(true);
 		usuario.setEnabled(true);
-
+		
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(16);
 		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 
