@@ -11,13 +11,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @ComponentScan
 public class Startup {
 
-	public static void main(String[] args) {
+	// public static void main(String[] args) {
 
-		SpringApplication.run(Startup.class, args);
+	// 	SpringApplication.run(Startup.class, args);
 
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(16);
-		String result = bCryptPasswordEncoder.encode("admin123");
-		System.out.println("My hash " + result);
+	// 	BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(16);
+	// 	String result = bCryptPasswordEncoder.encode("admin123");
+	// 	System.out.println("My hash " + result);
 
-	}
+	// }
 }
