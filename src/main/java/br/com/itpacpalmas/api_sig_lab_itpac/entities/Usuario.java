@@ -44,7 +44,7 @@ public class Usuario implements UserDetails {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @OneToOne(cascade = { CascadeType.MERGE })
+    @OneToOne(cascade = { CascadeType.PERSIST })
     @JoinColumn(name = "pessoa")
     private Pessoa pessoa;
 
