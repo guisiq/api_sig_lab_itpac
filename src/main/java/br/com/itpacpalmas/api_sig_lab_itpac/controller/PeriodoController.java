@@ -20,7 +20,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.entities.Periodo;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.PeriodoRepository;
 
 @RestController
-@RequestMapping("/api/periodo")
+@RequestMapping("api/periodo")
 @CrossOrigin
 public class PeriodoController {
 

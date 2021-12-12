@@ -22,7 +22,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.exception.ResourceNotFoundException;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.SalaRepository;
 
 @RestController
-@RequestMapping("/api/sala")
+@RequestMapping("api/sala")
 @CrossOrigin
 public class SalaController {
 

@@ -19,7 +19,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.entities.Status;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.StatusRepository;
 
 @RestController
-@RequestMapping(value = "/api/status")
+@RequestMapping(value = "api/status")
 @CrossOrigin
 public class StatusController {
     @Autowired

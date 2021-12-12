@@ -18,6 +18,6 @@ public class Startup {
 	// 	BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(16);
 	// 	String result = bCryptPasswordEncoder.encode("admin123");
 	// 	System.out.println("My hash " + result);
-
+	// 	//My hash $2a$16$oM7CV7.HyvU67VkaBBzksuf70afqzaPTySUVr12rEcofOd4ehPm1K
 	// }
 }
