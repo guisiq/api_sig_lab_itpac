@@ -37,8 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.httpBasic().disable().csrf().disable().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+		http.cors().and().httpBasic().disable().csrf().disable().sessionManagement()
+		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/api/forgotpass/**").permitAll()
 				//metodos get em agendamento e status sao permitidos a todos
 				.antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()

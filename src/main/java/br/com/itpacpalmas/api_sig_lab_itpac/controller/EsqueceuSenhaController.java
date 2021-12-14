@@ -33,6 +33,9 @@ RecuperarSenhaRepository recuperarSenhaRepository;
 	public ResponseEntity<?> enviarEmail(@RequestParam(name = "email") String email) {
 		 
 		Usuario usuario = usuarioRepository.findByEmail(email);
+		if(usuario == null) {
+			return ResponseEntity.ok().body("Esse email não é válido.");
+		}
 		Random r = new Random();
 		DecimalFormat format = new DecimalFormat("Afya-000000");
 		String codigo = format.format(r.nextInt(1000000));
@@ -54,7 +57,7 @@ RecuperarSenhaRepository recuperarSenhaRepository;
 		RecuperarSenha obj = recuperarSenhaRepository.findByCodigo(codigo);
 		if(obj == null || obj.getDataLimite().isBefore(LocalDateTime.now()) || obj.getUtilizado() == true) {
 			
-			return null;
+			return ResponseEntity.ok().body("Esse código não é válido ou expirou.");
 		}
 		else {
 			Usuario usu = obj.getUsuario();
