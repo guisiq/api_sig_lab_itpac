@@ -45,6 +45,8 @@ public class EmailService {
 		this.senha = prop.getProperty("senha");
 		System.out.println("email :"+this.usuario);
 		System.out.println("email :"+this.senha);
+		this.usuario = "noreplyitpacpalmas";
+		this.senha = "xatmtdendwisbnnr";
 	}
 	
 	
