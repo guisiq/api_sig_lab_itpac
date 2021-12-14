@@ -23,7 +23,7 @@ public class EmailService {
 	private String mensagem;
 	
 	public static void main(String[] args) {
-		EmailService email = new EmailService("davidnpjs@gmail.com", "teste", "teste");
+		EmailService email = new EmailService("lopesgui01@gmail.com", "teste", "teste");
 		System.out.println(email.enviar());
 		
 	}
@@ -43,6 +43,8 @@ public class EmailService {
 		
 		this.usuario = prop.getProperty("usuario");
 		this.senha = prop.getProperty("senha");
+		System.out.println("email :"+this.usuario);
+		System.out.println("email :"+this.senha);
 	}
 	
 	
