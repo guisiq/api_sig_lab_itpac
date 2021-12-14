@@ -20,7 +20,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.UsuarioRepository;
 import br.com.itpacpalmas.api_sig_lab_itpac.services.EmailService;
 
 @RestController
-@RequestMapping(value="/api/forgotpass")
+@RequestMapping(value="api/forgotpass")
 @CrossOrigin
 public class EsqueceuSenhaController {
 	
