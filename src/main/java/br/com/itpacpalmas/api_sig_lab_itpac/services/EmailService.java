@@ -23,7 +23,7 @@ public class EmailService {
 	private String mensagem;
 	
 	public static void main(String[] args) {
-		EmailService email = new EmailService("davidnpjs@gmail.com", "Mandando mailzin", "Se liga manin vou atras de tu");
+		EmailService email = new EmailService("davidnpjs@gmail.com", "teste", "teste");
 		System.out.println(email.enviar());
 		
 	}
@@ -74,7 +74,7 @@ public class EmailService {
 			return true;
 		} catch (MessagingException e) {
 			e.printStackTrace();
-			System.out.println("aqui ta o erro");
+			System.out.println("Não foi possivel mandar o email.");
 			return false;
 		}		
 	}
