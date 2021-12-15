@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		
 		http.cors().configurationSource(request -> corsConfiguration)
-		.and().httpBasic().disable().csrf().disable().sessionManagement()
+		.and().csrf().disable().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/api/forgotpass/**").permitAll()
 				//metodos get em agendamento e status sao permitidos a todos
