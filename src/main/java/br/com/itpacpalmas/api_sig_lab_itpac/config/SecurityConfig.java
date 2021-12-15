@@ -2,6 +2,9 @@ package br.com.itpacpalmas.api_sig_lab_itpac.config;
 
 
 
+
+
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
         
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedHeaders(List.of("Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization"));
-        corsConfiguration.setAllowedOriginPatterns(List.of("*"));
-        corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE","OPTIONS","PATCH"));
+        corsConfiguration.setAllowedHeaders(Arrays.asList(new String[]{"Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization"}));
+        corsConfiguration.setAllowedOriginPatterns(Arrays.asList(new String[]{"*"}));
+        corsConfiguration.setAllowedMethods(Arrays.asList(new String[]{"GET", "POST", "PUT", "DELETE","OPTIONS","PATCH"}));
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setExposedHeaders(List.of("Authorization"));
+        corsConfiguration.setExposedHeaders(Arrays.asList(new String[]{"Authorization"}));
 
 		
 		http.cors().and().httpBasic().disable().csrf().disable().sessionManagement()
