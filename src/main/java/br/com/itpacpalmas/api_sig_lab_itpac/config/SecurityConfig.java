@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.httpBasic().disable().csrf().disable().sessionManagement()
+		http.cors().and().httpBasic().disable().csrf().disable().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/api/forgotpass/**").permitAll()
 				//login e esqueceu a senha permitido a todos 
@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/**").hasAnyRole("ADMIN")
 				.anyRequest().authenticated()
 				.and()
-				.apply(new JwtConfigurer(tokenProvider)).and().cors();
+				.apply(new JwtConfigurer(tokenProvider));
 				
 
 	}
