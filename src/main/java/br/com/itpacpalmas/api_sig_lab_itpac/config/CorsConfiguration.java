@@ -12,6 +12,9 @@ public class CorsConfiguration implements WebMvcConfigurer {
         registry.addMapping("/**")
         .allowedOrigins("http://api-sig-itpac-84633.herokuapp.com","http://localhost:8080")
         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
+        registry.addMapping("/**")
+        .allowedOrigins("http://api-sig-itpac-84633.herokuapp.com")
+       .allowedMethods("GET", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
     
     
