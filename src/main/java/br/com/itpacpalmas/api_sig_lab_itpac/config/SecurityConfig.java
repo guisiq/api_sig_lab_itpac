@@ -36,28 +36,50 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	protected void configure(HttpSecurity http) throws Exception {
+		
+        http.authorizeRequests()
+        .antMatchers("/api/forgotpass/**").permitAll()
+        .antMatchers("/login/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()
+		.antMatchers(HttpMethod.GET, "/api/status/**").permitAll()
+		.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/aluno").hasAnyRole("ALUNO")
+		.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/professor").hasAnyRole("PROFESSOR")
+		.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
+		.antMatchers("/api/periodo/Agendamentos**").hasAnyRole("TECNICO")
+		.antMatchers(HttpMethod.GET, "/api/**").authenticated()
+		.antMatchers("/api/**").hasAnyRole("ADMIN")
+    	.anyRequest().authenticated()
+    	.and().cors()
+    	.and().csrf().disable()
+    	.apply(new JwtConfigurer(tokenProvider))
+    	.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-		http.httpBasic().disable().csrf().disable().sessionManagement()
-		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/api/forgotpass/**").permitAll()
-				//login e esqueceu a senha permitido a todos 
-				.antMatchers("/login/**").permitAll()
-				//metodos get em agendamento e status sao permitidos a todos
-				.antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()
-				.antMatchers(HttpMethod.GET, "/api/status/**").permitAll()
-				//POST DE AGENDAMENTO PARA ALUNO E PROFESSOR
-				.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/aluno").hasAnyRole("ALUNO")
-				.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/professor").hasAnyRole("PROFESSOR")
-				//metodos de manual e agendamento E permitido ao tecnico 
-				.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
-				.antMatchers("/api/periodo/Agendamentos**").hasAnyRole("TECNICO")
-				//metodos get permitidos a todos altenticados
-				.antMatchers(HttpMethod.GET, "/api/**").authenticated()
-				.antMatchers("/api/**").hasAnyRole("ADMIN")
-				.anyRequest().authenticated()
-				.and()
-				.apply(new JwtConfigurer(tokenProvider));
-				
+		
+// antigo ++++++++++++++++++++++++++++++++++++++++++++++	
+//        http.httpBasic().disable().csrf().disable().sessionManagement()
+//		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+//				.antMatchers("/api/forgotpass/**").permitAll()
+//				//login e esqueceu a senha permitido a todos 
+//				.antMatchers("/login/**").permitAll()
+//				//metodos get em agendamento e status sao permitidos a todos
+//				.antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()
+//				.antMatchers(HttpMethod.GET, "/api/status/**").permitAll()
+//				//POST DE AGENDAMENTO PARA ALUNO E PROFESSOR
+//				.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/aluno").hasAnyRole("ALUNO")
+//				.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/professor").hasAnyRole("PROFESSOR")
+//				//metodos de manual e agendamento E permitido ao tecnico 
+//				.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
+//				.antMatchers("/api/periodo/Agendamentos**").hasAnyRole("TECNICO")
+//				//metodos get permitidos a todos altenticados
+//				.antMatchers(HttpMethod.GET, "/api/**").authenticated()
+//				.antMatchers("/api/**").hasAnyRole("ADMIN")
+//				.anyRequest().authenticated()
+//				.and()
+//				.apply(new JwtConfigurer(tokenProvider));
+//			
+//		
+		
+		
 
 	}
 
