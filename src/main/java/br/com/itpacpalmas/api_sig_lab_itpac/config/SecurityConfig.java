@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//login e esqueceu a senha permitido a todos 
 				.antMatchers("/login/**").permitAll()
 				.anyRequest().authenticated()
-				.and().cors().and()
-				.apply(new JwtConfigurer(tokenProvider));
+				.and()
+				.apply(new JwtConfigurer(tokenProvider)).and().cors();
 				
 
 	}
