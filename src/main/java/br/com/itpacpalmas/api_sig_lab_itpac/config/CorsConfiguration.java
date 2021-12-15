@@ -9,10 +9,10 @@ public class CorsConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-            .allowedOrigins("http://api-sig-itpac-84633.herokuapp.com","http://localhost:8080","https://api-sig-itpac-84633.herokuapp.com")
-            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS",  "HEAD", "TRACE", "CONNECT");
+        registry.addMapping("/**")
+        .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
+    
 
 }
 
