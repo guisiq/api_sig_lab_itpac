@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         corsConfiguration.setAllowedHeaders(Arrays.asList(new String[]{"Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization","strict-origin-when-cross-origin","*"}));
         corsConfiguration.setAllowedOriginPatterns(Arrays.asList(new String[]{"*"}));
         corsConfiguration.setAllowedMethods(Arrays.asList(new String[]{"GET", "POST", "PUT", "DELETE", "PUT","OPTIONS","PATCH", "DELETE"}));
-        corsConfiguration.setAllowCredentials(false);
+        corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setExposedHeaders(Arrays.asList(new String[]{"Authorization"}));
 
 		
@@ -55,18 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().csrf().disable().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
 				.antMatchers("/api/forgotpass/**").permitAll()
-				//metodos get em agendamento e status sao permitidos a todos
-				.antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()
-				.antMatchers(HttpMethod.GET, "/api/status/**").permitAll()
-				//POST DE AGENDAMENTO PARA ALUNO E PROFESSOR
-				.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/aluno").hasAnyRole("ALUNO")
-				.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/professor").hasAnyRole("PROFESSOR")
-				//metodos de manual e agendamento E permitido ao tecnico 
-				.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
-				.antMatchers("/api/periodo/Agendamentos**").hasAnyRole("TECNICO")
-				//metodos get permitidos a todos altenticados
-				.antMatchers(HttpMethod.GET, "/api/**").authenticated()
-				.antMatchers("/api/**").hasAnyRole("ADMIN")
+				.antMatchers("/api/**").permitAll()
 				//login e esqueceu a senha permitido a todos 
 				.antMatchers("/login/**").permitAll()
 				.anyRequest().authenticated()
