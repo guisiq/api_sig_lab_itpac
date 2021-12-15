@@ -43,11 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
         
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedHeaders(Arrays.asList(new String[]{"Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization","strict-origin-when-cross-origin"}));
+        corsConfiguration.setAllowedHeaders(Arrays.asList(new String[]{"Access-Control-Allow-Headers","Access-Control-Allow-Origin","Access-Control-Request-Method", "Access-Control-Request-Headers","Origin","Cache-Control", "Content-Type", "Authorization","strict-origin-when-cross-origin","*"}));
         corsConfiguration.setAllowedOriginPatterns(Arrays.asList(new String[]{"*"}));
-        corsConfiguration.setAllowedMethods(Arrays.asList(new String[]{"GET", "POST", "PUT", "DELETE","OPTIONS","PATCH"}));
+        corsConfiguration.setAllowedMethods(Arrays.asList(new String[]{"GET", "POST", "PUT", "DELETE","OPTIONS","PATCH","*"}));
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setExposedHeaders(Arrays.asList(new String[]{"Authorization"}));
+        corsConfiguration.setExposedHeaders(Arrays.asList(new String[]{"Authorization","*"}));
 
 		
 		http.cors().configurationSource(request -> corsConfiguration)
