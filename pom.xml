@@ -71,12 +71,7 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
-		<!-- for Tokens support -->
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.9.1</version>
-		</dependency>
+	
 
 		<!-- https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail -->
 		<dependency>
