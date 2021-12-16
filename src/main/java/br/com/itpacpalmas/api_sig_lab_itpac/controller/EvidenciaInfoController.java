@@ -24,7 +24,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.EvidenciaInfo;
 
 @RestController
 @RequestMapping("api/evidencia/info")
-@CrossOrigin
+//@CrossOrigin
 public class EvidenciaInfoController {
 
     @Autowired

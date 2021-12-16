@@ -28,7 +28,7 @@ import net.bytebuddy.implementation.bytecode.Throw;
 
 @RestController
 @RequestMapping(value = "api/usuario")
-@CrossOrigin
+//@CrossOrigin
 public class UsuarioController {
 	@Autowired
 	UsuarioRepository repository;

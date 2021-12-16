@@ -22,7 +22,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.Presenca;
 
 @RestController
 @RequestMapping("api/evidencia/presenca")
-@CrossOrigin
+//@CrossOrigin
 public class PresencaController {
 	 
 	@Autowired
