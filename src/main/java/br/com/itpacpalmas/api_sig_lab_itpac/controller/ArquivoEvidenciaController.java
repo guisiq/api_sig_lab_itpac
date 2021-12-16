@@ -26,7 +26,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.entities.VO.ArquivoResponseVO;
 // https://www.youtube.com/watch?v=DtC_KfU6b1o
 @RestController
 @RequestMapping("api/evidencia/arquivo")
-//@CrossOrigin
+@CrossOrigin
 public class ArquivoEvidenciaController {
     @Autowired
 	private ArquivoEvidenciaService servises;

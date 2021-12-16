@@ -25,7 +25,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping(value = "api/professores")
-//@CrossOrigin
+@CrossOrigin
 public class ProfessorController {
 
     @Autowired

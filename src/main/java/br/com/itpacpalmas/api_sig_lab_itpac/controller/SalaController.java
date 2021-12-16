@@ -23,7 +23,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.SalaRepository;
 
 @RestController
 @RequestMapping("api/sala")
-//@CrossOrigin
+@CrossOrigin
 public class SalaController {
 
     @Autowired

@@ -24,7 +24,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("api/aluno")
-//@CrossOrigin
+@CrossOrigin
 public class AlunoController {
 
 	@Autowired
