@@ -59,9 +59,8 @@ public class AuthController {
 		return repository.findAll();
 	}
 
-	@SuppressWarnings("rawtypes")
-	@PostMapping(value = "/signin", produces = { "application/json", "application/xml",
-			"application/x-yaml" }, consumes = { "application/json", "application/xml", "application/x-yaml" })
+	
+	@PostMapping("/signin")
 	public ResponseEntity signin(@RequestBody AccountCredentialsVO data) {
 		try {
 			String username = data.getUsername();
