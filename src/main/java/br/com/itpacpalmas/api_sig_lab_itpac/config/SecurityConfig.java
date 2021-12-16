@@ -56,6 +56,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().csrf().disable()
 		.authorizeRequests()
 					.antMatchers("/api/forgotpass/**").permitAll()
+					//login e esqueceu a senha permitido a todos 
+					.antMatchers("/login/**").permitAll()
 					//metodos get em agendamento e status sao permitidos a todos
 					.antMatchers(HttpMethod.GET, "/api/periodo/Agendamentos/**").permitAll()
 					.antMatchers(HttpMethod.GET, "/api/status/**").permitAll()
@@ -68,8 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					//metodos get permitidos a todos altenticados
 					.antMatchers(HttpMethod.GET, "/api/**").authenticated()
 					.antMatchers("/api/**").hasAnyRole("ADMIN")
-					//login e esqueceu a senha permitido a todos 
-					.antMatchers("/login/**").permitAll()
+					
 					.anyRequest().authenticated()
 					.and()
                     .sessionManagement()
