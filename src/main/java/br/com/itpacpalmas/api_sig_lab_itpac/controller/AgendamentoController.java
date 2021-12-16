@@ -27,8 +27,8 @@ import br.com.itpacpalmas.api_sig_lab_itpac.entities.Status;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.AgendamentoRepository;
 
 @RestController
-@RequestMapping(value = "/api/periodo/Agendamentos")
-@CrossOrigin
+@RequestMapping(value = "api/periodo/Agendamentos")
+//@CrossOrigin
 public class AgendamentoController {
     @Autowired
     AgendamentoRepository agendamentoRepository;

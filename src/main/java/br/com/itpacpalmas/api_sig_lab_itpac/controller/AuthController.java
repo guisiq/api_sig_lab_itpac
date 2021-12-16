@@ -27,8 +27,8 @@ import br.com.itpacpalmas.api_sig_lab_itpac.security.AccountCredentialsVO;
 import br.com.itpacpalmas.api_sig_lab_itpac.security.jwt.JwtTokenProvider;
 
 @RestController
-@RequestMapping("/login")
-@CrossOrigin
+@RequestMapping("login")
+//@CrossOrigin
 public class AuthController {
 
 	@Autowired

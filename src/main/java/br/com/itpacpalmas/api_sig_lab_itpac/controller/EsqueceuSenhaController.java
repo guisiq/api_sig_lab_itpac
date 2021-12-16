@@ -23,7 +23,7 @@ import br.com.itpacpalmas.api_sig_lab_itpac.services.EmailService;
 
 @RestController
 @RequestMapping(value="api/forgotpass")
-@CrossOrigin
+//@CrossOrigin
 public class EsqueceuSenhaController {
 	
 @Autowired
