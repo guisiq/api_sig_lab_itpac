@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         corsConfiguration.setAllowedOriginPatterns(Arrays.asList(new String[]{"*"}));
         corsConfiguration.setAllowedMethods(Arrays.asList(new String[]{"GET", "POST", "PUT", "DELETE", "PUT","OPTIONS","PATCH", "DELETE"}));
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setExposedHeaders(List.of("Authorization"));
+        corsConfiguration.setExposedHeaders(Arrays.asList(new String[]{"Authorization"}));
 
 		
 
