@@ -28,7 +28,7 @@ public class ManualController {
     @Autowired
 	private ManualService services;
 
-    @GetMapping("getAll/{filtro}")
+    @GetMapping("/getAll/{filtro}")
 public List<ManualResponseVO> getAll(@PathVariable (value = "filtro") boolean filtro){
     List<ManualResponseVO> retorno = services.buscarTodosInfo();
     if (filtro) {
