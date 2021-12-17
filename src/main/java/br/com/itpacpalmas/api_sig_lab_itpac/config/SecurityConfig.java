@@ -64,12 +64,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					//POST DE AGENDAMENTO PARA ALUNO E PROFESSOR
 					.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/aluno").hasAnyRole("ALUNO")
 					.antMatchers(HttpMethod.POST,"/api/periodo/Agendamentos/professor").hasAnyRole("PROFESSOR")
+					.antMatchers("/api/**").hasAnyRole("ADMIN")
 					//metodos de manual e agendamento E permitido ao tecnico 
 					.antMatchers("/api/manual/**").hasAnyRole("TECNICO")
 					.antMatchers("/api/periodo/Agendamentos**").hasAnyRole("TECNICO")
 					//metodos get permitidos a todos altenticados
 					.antMatchers(HttpMethod.GET, "/api/**").authenticated()
-					.antMatchers("/api/**").hasAnyRole("ADMIN")
 					
 					.anyRequest().authenticated()
 					.and()
