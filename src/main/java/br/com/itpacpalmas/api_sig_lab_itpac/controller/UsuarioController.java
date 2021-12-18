@@ -51,6 +51,8 @@ public class UsuarioController {
 			retorno.put("login", usu.getUserName());
 			retorno.put("id", usu.getId());
 			retorno.put("pesoaid", usu.getPessoa().getId());
+			retorno.put("pesoaCpf", usu.getPessoa().getCpf());
+			retorno.put("pesoaNome", usu.getPessoa().getNome());
 			
 		return ResponseEntity.ok(retorno);
 
@@ -68,6 +70,8 @@ public class UsuarioController {
 			retorno.put("login", usu.getUserName());
 			retorno.put("id", usu.getId());
 			retorno.put("pesoaid", usu.getPessoa().getId());
+			retorno.put("pesoaCpf", usu.getPessoa().getCpf());
+			retorno.put("pesoaNome", usu.getPessoa().getNome());
 			
 			return ResponseEntity.ok(retorno);
 
@@ -83,6 +87,8 @@ public class UsuarioController {
 			aux.put("login", u.getUserName());
 			aux.put("id", u.getId());
 			aux.put("pesoaid", u.getPessoa().getId());
+			aux.put("pesoaCpf", u.getPessoa().getCpf());
+			aux.put("pesoaNome", u.getPessoa().getNome());
 			retorno.add(aux);
 		});
 		return ResponseEntity.ok(retorno);
