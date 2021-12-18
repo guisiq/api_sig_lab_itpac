@@ -35,7 +35,7 @@ public class UsuarioController {
 	@Autowired
 	PessoaRepository pessoaRepository;
 
-	@PostMapping(value = "/cadastrar")
+	@PostMapping
 	public ResponseEntity cadastro(@RequestBody Usuario usuario) {
 		usuario.setId(null);
 		usuario.setAccountNonExpired(true);
