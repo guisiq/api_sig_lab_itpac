@@ -93,5 +93,18 @@ public class UsuarioController {
 		});
 		return ResponseEntity.ok(retorno);
 	}
+	@GetMapping(value = "/listar2")
+	public ResponseEntity listar2() {
+		List<Usuario> list =repository.findAll(); 
+		List<HashMap<String,Object>> retorno = new ArrayList<>(); 
+		list.forEach(u -> {
+			HashMap<String,Object> aux = new HashMap<String,Object>();
+			aux.put("login", u.getUserName());
+			aux.put("id", u.getId());
+			aux.put("pesoa", u.getPessoa());
+			retorno.add(aux);
+		});
+		return ResponseEntity.ok(retorno);
+	}
 
 }
