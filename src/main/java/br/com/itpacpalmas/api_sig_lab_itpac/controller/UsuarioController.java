@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.itpacpalmas.api_sig_lab_itpac.entities.Pessoa;
 import br.com.itpacpalmas.api_sig_lab_itpac.entities.Usuario;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.PessoaRepository;
 import br.com.itpacpalmas.api_sig_lab_itpac.repository.UsuarioRepository;
@@ -45,14 +46,24 @@ public class UsuarioController {
 
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(16);
 		usuario.setPassword( bCryptPasswordEncoder.encode( usuario.getPassword() ) ) ;
-
+        Pessoa pessoa=  pessoaRepository.save(usuario.getPessoa());
+        usuario.setPessoa(pessoa);
 		Usuario usu = repository.save(usuario);
 			HashMap<String,Object> retorno = new HashMap<String,Object>();
 			retorno.put("login", usu.getUserName());
 			retorno.put("id", usu.getId());
-			retorno.put("pesoaid", usu.getPessoa().getId());
-			retorno.put("pesoaCpf", usu.getPessoa().getCpf());
-			retorno.put("pesoaNome", usu.getPessoa().getNome());
+			if( usu.getPessoa().getId() != null ){
+				retorno.put("pesoaid", usu.getPessoa().getId());
+			}
+			if( usu.getPessoa().getCpf() != null ){
+				retorno.put("pesoaCpf", usu.getPessoa().getCpf());
+			}
+			if( usu.getPessoa().getNome() != null ){
+				retorno.put("pesoaNome", usu.getPessoa().getNome());
+			}
+			
+		
+			
 			
 		return ResponseEntity.ok(retorno);
 
